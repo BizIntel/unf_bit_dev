@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+1. Значения классификаторов по-умолчанию готовятся в эталонной базе с помощью обработки "ВыгрузкаСтандартныхДанных".
+Результатом работы этой обработки будет создание во временном каталоге Windows файлов:
+Справочник.ЛентыНовостей.xml
+Справочник.ЗначенияКатегорийНовостей.xml
+ПланВидовХарактеристик.КатегорииНовостей.xml
+Содержимое каждого файла необходимо вставить в макет с именем СтандартныеЗначения в соответствующий объект метаданных
+
+2. Значения новостей готовятся в эталонной базе с помощью обработки "СозданиеНовостей".
+Результатом работы этой обработки будет создание файла-архива с файлами с именем "СтандартныеЗначения_[КодКанала].xml",
+  где вместо [КодКанала] будет указан код каждого канала.
+Эти файлы необходимо вставить как макеты в справочник Новости с такими же именами, как и имя файла (без расширения).
+
+3. Обязательные категории должны присутствовать всегда:
+  - ВерсияПлатформы;
+  - ВерсияПродукта;
+  - Продукт;
+  - Режим разделения данных;
+  - Способ хранения ИБ;
+  - Подсистема внедрена;
+  - Подсистема не внедрена;
+  - Функциональная опция включена;
+  - Функциональная опция отключена;
+  - Роль пользователя.
+
+-->
+
+<DefaultData xmlns:ncc="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>aeb63118-2f40-47de-b354-efcfe8245819</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>PlatformVersion</ncc:Code>
+		<ncc:Description>Версия платформы</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>СправочникСсылка_ИнтервалыВерсийПродукта</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>42bc09c7-050c-49e8-a82b-360b17d3ec61</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>ProductVersion</ncc:Code>
+		<ncc:Description>Версия продукта</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>СправочникСсылка_ИнтервалыВерсийПродукта</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>f17954b1-07cc-4150-813a-192337d9914d</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>Product</ncc:Code>
+		<ncc:Description>Продукт</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>true</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>2371dd3d-741f-11e6-a82f-001122987654</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>DataSeparation</ncc:Code>
+		<ncc:Description>Режим разделения данных</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>2371dd3c-741f-11e6-a82f-001122987654</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>InfoBaseStorageType</ncc:Code>
+		<ncc:Description>Способ хранения ИБ</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>e984665a-9609-11e6-950d-20cf30c96139</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>SubsystemRealized</ncc:Code>
+		<ncc:Description>Подсистема внедрена</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>e984665b-9609-11e6-950d-20cf30c96139</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>SubsystemNotRealized</ncc:Code>
+		<ncc:Description>Подсистема не внедрена</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>2371dd39-741f-11e6-a82f-001122987654</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>UserRole</ncc:Code>
+		<ncc:Description>Роль пользователя</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">ncc:CatalogRef.ЗначенияКатегорийНовостей</Type>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>false</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>СправочникСсылка_ЗначенияКатегорийНовостей</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>69fc8db7-78af-11e5-bc07-001122987654</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>FunctionalOptionOn</ncc:Code>
+		<ncc:Description>Функциональная опция включена</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>e9846659-9609-11e6-950d-20cf30c96139</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>FunctionalOptionOff</ncc:Code>
+		<ncc:Description>Функциональная опция отключена</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+			<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+				<Length>0</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>true</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>false</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>Строка</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>bbb1bd86-37e8-11e3-b639-000e0ce2fa0f</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>NewsTypeUpdates</ncc:Code>
+		<ncc:Description>Вид новости обновлений</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">ncc:CatalogRef.ЗначенияКатегорийНовостей</Type>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>false</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>true</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>СправочникСсылка_ЗначенияКатегорийНовостей</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+	<ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей xsi:type="ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей">
+		<ncc:Ref>b26b3f28-a231-4a88-80d9-80df38625642</ncc:Ref>
+		<ncc:DeletionMark>false</ncc:DeletionMark>
+		<ncc:Code>Location</ncc:Code>
+		<ncc:Description>География</ncc:Description>
+		<ncc:ValueType>
+			<Type xmlns="http://v8.1c.ru/8.1/data/core">ncc:CatalogRef.ЗначенияКатегорийНовостей</Type>
+		</ncc:ValueType>
+		<ncc:ЗаполняетсяАвтоматически>false</ncc:ЗаполняетсяАвтоматически>
+		<ncc:ОбновляетсяССервера>true</ncc:ОбновляетсяССервера>
+		<ncc:ОтборНастраиваетсяНаСервере>false</ncc:ОтборНастраиваетсяНаСервере>
+		<ncc:ТипЗначенияВспомогательный>СправочникСсылка_ЗначенияКатегорийНовостей</ncc:ТипЗначенияВспомогательный>
+		<ncc:ЗагруженоССервера>true</ncc:ЗагруженоССервера>
+	</ncc:ChartOfCharacteristicTypesObject.КатегорииНовостей>
+
+
+</DefaultData>

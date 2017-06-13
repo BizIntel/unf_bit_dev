@@ -1,0 +1,287 @@
+﻿<ValueTable xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ValueTable">
+	<column>
+		<Name xsi:type="xs:string">ДействуетС</Name>
+		<ValueType>
+			<Type>xs:dateTime</Type>
+			<DateQualifiers>
+				<DateFractions>Date</DateFractions>
+			</DateQualifiers>
+		</ValueType>
+	</column>
+	<column>
+		<Name xsi:type="xs:string">ДействуетПо</Name>
+		<ValueType>
+			<Type>xs:dateTime</Type>
+			<DateQualifiers>
+				<DateFractions>Date</DateFractions>
+			</DateQualifiers>
+		</ValueType>
+	</column>
+	<column>
+		<Name xsi:type="xs:string">Регион</Name>
+		<ValueType>
+			<Type>xs:string</Type>
+			<StringQualifiers>
+				<Length>2</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ValueType>
+	</column>
+	<column>
+		<Name xsi:type="xs:string">ТипТорговойТочки</Name>
+		<ValueType>
+			<Type>xs:string</Type>
+			<StringQualifiers>
+				<Length>200</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ValueType>
+	</column>
+	<column>
+		<Name xsi:type="xs:string">Наименование</Name>
+		<ValueType>
+			<Type>xs:string</Type>
+			<StringQualifiers>
+				<Length>100</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ValueType>
+	</column>
+	<column>
+		<Name xsi:type="xs:string">КодНалоговойЛьготы</Name>
+		<ValueType>
+			<Type>xs:string</Type>
+			<StringQualifiers>
+				<Length>12</Length>
+				<AllowedLength>Variable</AllowedLength>
+			</StringQualifiers>
+		</ValueType>
+	</column>
+		
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>01</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>01</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>01</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>02</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>02</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>02</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>02</Value>
+		<Value>Торговая точка с печатной продукцией</Value>
+		<Value>000300010007</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>04</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>04</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>04</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>04</Value>
+		<Value>Торговая точка с печатной продукцией</Value>
+		<Value>000300010007</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>05</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>05</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>05</Value>
+		<Value>Торговая точка расположена на территории ярмарки</Value>
+		<Value>000300010002</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>05</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>05</Value>
+		<Value>Торговая точка с печатной продукцией</Value>
+		<Value>000300010007</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>06</Value>
+		<Value>Торговля с использованием вендинговых автоматов</Value>
+		<Value>000300010001</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>03</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>07</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>07</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>07</Value>
+		<Value>Торговая точка расположена на территории ярмарки</Value>
+		<Value>000300010002</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>07</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>07</Value>
+		<Value>Торговая точка с печатной продукцией</Value>
+		<Value>000300010007</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>08</Value>
+		<Value>Не применяется</Value>
+		<Value>000000000000</Value>
+	</row>
+		<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>08</Value>
+		<Value>Торговая точка расположена на территории розничного рынка</Value>
+		<Value>000300010003</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>08</Value>
+		<Value>Торговая точка расположена на территории ярмарки</Value>
+		<Value>000300010002</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>08</Value>
+		<Value>Сопутствующая торговля при оказании бытовых услуг</Value>
+		<Value>000300030000</Value>
+	</row>
+	<row>
+		<Value>2015-07-01T00:00:00</Value>
+		<Value>3099-12-31T00:00:00</Value>
+		<Value>45</Value>
+		<Value>08</Value>
+		<Value>Торговая точка с печатной продукцией</Value>
+		<Value>000300010007</Value>
+	</row>
+
+
+</ValueTable>

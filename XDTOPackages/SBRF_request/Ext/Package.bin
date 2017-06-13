@@ -1,0 +1,299 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://bssys.com/upg/request">
+	<property xmlns:d2p1="http://bssys.com/upg/request" name="Request" type="d2p1:Request"/>
+	<valueType name="AccNumType" base="xs:string" variety="Atomic" length="20">
+		<pattern>[0-9]{20}</pattern>
+	</valueType>
+	<valueType name="AddInfo" base="xs:string" variety="Atomic" minLength="1" maxLength="4000"/>
+	<valueType name="BicType" base="xs:string" variety="Atomic" length="9">
+		<pattern>[0-9]{9}</pattern>
+	</valueType>
+	<valueType name="BoolType" base="xs:boolean" variety="Atomic">
+		<pattern>[0-1]{1}</pattern>
+	</valueType>
+	<valueType name="CbcType" base="xs:string" variety="Atomic">
+		<pattern>[0]{1}|[0-9]{20}</pattern>
+	</valueType>
+	<valueType name="DealPassNumFullType" base="xs:string" variety="Atomic">
+		<pattern>([0-9]{8}/)?[0-9]{4}/[0-9]{4}/([0-9]/)?[0-1]</pattern>
+	</valueType>
+	<valueType name="InnType" base="xs:string" variety="Atomic"/>
+	<valueType name="KppType" base="xs:string" variety="Atomic" maxLength="9">
+		<pattern>([0-9]{5}[0-9A-Za-z]{1}[0-9]{3})|0</pattern>
+	</valueType>
+	<valueType name="OgrnType" base="xs:string" variety="Atomic" minLength="13" maxLength="15">
+		<pattern>[0-9]{13,15}</pattern>
+	</valueType>
+	<valueType name="OkatoType" base="xs:string" variety="Atomic" minLength="1" maxLength="11">
+		<pattern>[0-9]{1,11}</pattern>
+	</valueType>
+	<valueType name="OkpoType" base="xs:string" variety="Atomic" minLength="8" maxLength="10">
+		<pattern>[0-9]{8,10}</pattern>
+	</valueType>
+	<valueType name="OperCodeType" base="xs:string" variety="Atomic" length="5">
+		<pattern>[0-9]{5}</pattern>
+	</valueType>
+	<valueType name="UuidSeparated" base="xs:string" variety="Atomic">
+		<pattern>[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}</pattern>
+	</valueType>
+	<valueType name="uipType" base="xs:string" variety="Atomic" maxLength="25"/>
+	<objectType name="Acc">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="bic" type="d3p1:BicType" lowerBound="0" form="Attribute"/>
+		<property name="docNum" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="6"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="__content" type="d3p1:AccNumType" form="Text"/>
+	</objectType>
+	<objectType name="AccDoc">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="uip" type="d3p1:uipType" lowerBound="0" form="Attribute"/>
+		<property name="accDocNo" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="docDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="docSum" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="transKind" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2"/>
+		</property>
+		<property name="paytKind" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+		</property>
+		<property name="priority" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:int" variety="Atomic" minInclusive="1" maxInclusive="6"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="codeVO" type="d3p1:OperCodeType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="psNum" type="d3p1:DealPassNumFullType" lowerBound="0" form="Attribute"/>
+		<property name="urgentSBRF" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1">
+				<pattern>[012]{1}</pattern>
+			</typeDef>
+		</property>
+		<property name="vat" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="vatSum" type="xs:decimal" lowerBound="0" form="Attribute"/>
+		<property name="vatRate" type="xs:decimal" lowerBound="0" form="Attribute"/>
+		<property name="Purpose">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="210"/>
+		</property>
+	</objectType>
+	<objectType name="Account" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="bic" type="d3p1:BicType" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="__content" type="d3p1:AccNumType" form="Text"/>
+	</objectType>
+	<objectType name="AttachmentsType">
+		<property name="Attachment" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="AttachmentName" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="64"/>
+				</property>
+				<property name="Description" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1024"/>
+				</property>
+				<property name="Body" type="xs:base64Binary"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Bank">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="bic" type="d3p1:BicType" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="correspAcc" type="d3p1:AccNumType" lowerBound="0" form="Attribute"/>
+		<property name="Name">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property name="BankCity" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+		</property>
+		<property name="SettlementType" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+	</objectType>
+	<objectType name="ComLettData">
+		<property name="docDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="docNum" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="6"/>
+		</property>
+		<property name="bankName" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="bankNum" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="OrgData" type="d3p1:OrgData"/>
+	</objectType>
+	<objectType name="Credit">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="flagTargetAssignment" type="d3p1:BoolType" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="flagUseOwnMeans" type="d3p1:BoolType" lowerBound="1" form="Attribute"/>
+		<property name="CredConNum" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="DepartmentalInfo">
+		<property name="drawerStatus" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="cbc" type="d3p1:CbcType" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="okato" type="d3p1:OkatoType" lowerBound="1" form="Attribute"/>
+		<property name="paytReason" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+		</property>
+		<property name="taxPeriod" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+		</property>
+		<property name="docNo" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+		</property>
+		<property name="docDate" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="taxPaytKind" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+		</property>
+	</objectType>
+	<objectType name="DigitalSign">
+		<property name="Issuer">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1024"/>
+		</property>
+		<property name="SN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="Value" type="xs:base64Binary"/>
+		<property name="DigestName" type="xs:string" lowerBound="0"/>
+		<property name="DigestVersion" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="LetterInBank">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="docExtId" type="d3p1:UuidSeparated" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="DocData" type="d3p1:ComLettData"/>
+		<property name="Type" type="xs:string" lowerBound="0"/>
+		<property name="Theme" type="xs:string"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="AddInfo" type="d3p1:AddInfo"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="LinkedDocs" type="d3p1:LinkedDocs" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Attachments" type="d3p1:AttachmentsType" lowerBound="0"/>
+	</objectType>
+	<objectType name="LinkedDocs">
+		<property name="LDoc" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="type" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+				</property>
+				<property xmlns:d5p1="http://bssys.com/upg/request" name="docExtId" type="d5p1:UuidSeparated" lowerBound="0" form="Attribute"/>
+				<property xmlns:d5p1="http://bssys.com/upg/request" name="Params" type="d5p1:Params" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="OrgData">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="kpp" type="d3p1:KppType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="okato" type="d3p1:OkatoType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="inn" type="d3p1:InnType" lowerBound="1" form="Attribute"/>
+		<property name="orgName" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="okpo" type="d3p1:OkpoType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="orgOGRN" type="d3p1:OgrnType" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="OverdraftRequest">
+		<property name="Accounts">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://bssys.com/upg/request" name="Account" type="d5p1:Account" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Param">
+		<property name="name" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="value" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="Params">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Param" type="d3p1:Param" upperBound="-1"/>
+	</objectType>
+	<objectType name="PayDocRu">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="docExtId" type="d3p1:UuidSeparated" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="AccDoc" type="d3p1:AccDoc"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Payer" type="d3p1:Payer"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Payee" type="d3p1:Payee"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="DepartmentalInfo" type="d3p1:DepartmentalInfo" lowerBound="0"/>
+		<property name="Information" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="210"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Credit" type="d3p1:Credit" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="LinkedDocs" type="d3p1:LinkedDocs" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Attachments" type="d3p1:AttachmentsType" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Services" type="d3p1:Services" lowerBound="0"/>
+	</objectType>
+	<objectType name="Payee">
+		<property name="personalAcc" lowerBound="0" form="Attribute">
+			<typeDef xmlns:d4p1="http://bssys.com/upg/request" xsi:type="ValueType" base="d4p1:AccNumType" variety="Atomic" length="20"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="kpp" type="d3p1:KppType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="inn" type="d3p1:InnType" lowerBound="0" form="Attribute"/>
+		<property name="Name">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Bank" type="d3p1:Bank"/>
+		<property name="Filial" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+		</property>
+	</objectType>
+	<objectType name="Payer">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="inn" type="d3p1:InnType" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="kpp" type="d3p1:KppType" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="personalAcc" type="d3p1:AccNumType" lowerBound="1" form="Attribute"/>
+		<property name="Name">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Bank" type="d3p1:Bank"/>
+		<property name="Filial" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+		</property>
+	</objectType>
+	<objectType name="Request" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="requestId" type="d3p1:UuidSeparated" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="orgId" type="d3p1:UuidSeparated" lowerBound="1" form="Attribute"/>
+		<property name="version" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9\.]{1,20}</pattern>
+			</typeDef>
+		</property>
+		<property name="sender" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="receiver" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="DocIds" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="DocId" upperBound="1000">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://bssys.com/upg/request" name="docId" type="d7p1:UuidSeparated" lowerBound="0" form="Attribute"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="PayDocRu" type="d3p1:PayDocRu" lowerBound="0"/>
+		<property name="Incoming" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="lastIncomingTime" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="StmtReq" type="d3p1:StmtReqType" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="LetterInBank" type="d3p1:LetterInBank" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="RemainRequest" type="d3p1:OverdraftRequest" lowerBound="0"/>
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Sign" type="d3p1:DigitalSign" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Services">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="Params" type="d3p1:Params"/>
+	</objectType>
+	<objectType name="StmtReqType">
+		<property xmlns:d3p1="http://bssys.com/upg/request" name="docExtId" type="d3p1:UuidSeparated" lowerBound="0" form="Attribute"/>
+		<property name="createTime" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property name="beginDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="endDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="stmtType" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>1</enumeration>
+				<enumeration>6</enumeration>
+				<enumeration>101</enumeration>
+				<enumeration>106</enumeration>
+				<enumeration>0</enumeration>
+			</typeDef>
+		</property>
+		<property name="orgName" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="Accounts">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://bssys.com/upg/request" name="Account" type="d5p1:Acc" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+</package>
